@@ -11,6 +11,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:tailwindcss/recommended",
     "prettier"
   ],
   "parserOptions": {
@@ -20,9 +21,6 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": [
-    "react"
-  ],
-  "rules": {
-  }
+  "plugins": ["react", "tailwindcss"],
+  "rules": {}
 }
