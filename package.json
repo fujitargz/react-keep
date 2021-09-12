@@ -16,6 +16,9 @@
     "build": "react-scripts build",
     "lint": "eslint 'src/**/*.{js,jsx}'",
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx}'",
+    "format": "prettier --check src/**/*.{js,jsx}",
+    "format:fix": "prettier --write src/**/*.{js,jsx}",
+    "fix": "yarn run format:fix && yarn run lint:fix",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -33,6 +36,8 @@
   },
   "devDependencies": {
     "eslint": "^7.32.0",
-    "eslint-plugin-react": "^7.25.1"
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.25.1",
+    "prettier": "^2.4.0"
   }
 }
