@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# React Keep
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 使用技術
 
-## Available Scripts
+- 言語
+  - [React](https://reactjs.org/)
+- CSS フレームワーク
+  - [TailwindCSS](https://tailwindcss.com/)
+- フォーマッタ
+  - [Prettier](https://prettier.io/)
+- リンタ
+  - [ESLint](https://eslint.org/)
 
-In the project directory, you can run:
+## ブランチ運用ルール
+
+### `main`
+
+- 本番環境にデプロイするコード。
+- `develop`からの Pull Request のみ可能。
+- 直接 push しないこと。
+
+### `develop`
+
+- 本番環境に反映する前に確認するためのブランチ(ステージング環境用)。
+- `feature/*`からの Pull Request のみ可能。
+- 直接 push しないこと。
+
+### `feature/*`
+
+- 作業用のブランチ。
+- 作成する際は必ず`develop`ブランチから分岐させること。
+- 対応する Issue がある場合はなど、Issue の番号をブランチ名にすることを推奨。
+  - 例：Issue#99 に対応するブランチならば`feature/#99`。
+- 対応する Issue がない場合はブランチの開発内容をもとに命名すること。
+- Pull Request は`develop`ブランチに対して発行すること。
+
+## コミットメッセージの書式
+
+- 日本語で良い。
+- 対応する Issue がある場合はコミットメッセージの先頭に Issue の番号を記入することを推奨。
+  - 例：Issue#99 に対応するコミットならば`#99 コミット内容`。
+  - ただし、同一の`feature/*`ブランチ内で Issue 番号を含むコミットメッセージを一度でも書いたことがある場合は、再度書く必要はない。
+- 1 行に収まらない場合は 3 行以上に分けて書くこと。
+  - 1 行目には内容の要約を書くこと。
+  - 2 行目は必ず空行にすること。
+  - 3 行目以降に詳細を書くこと。複数行になっても良い。
+
+## Pull Request のルール
+
+- `feature/*`ブランチからの Pull Request は、必ずレビューを実施すること。ただし、レビュアーは別途指定する。
+- Pull Request の merge はレビュアーが行うこと。
+- コンフリクトがあった場合、一度そのままレビューを実施し、レビュー後にコンフリクト解消を行い、再レビューを実施し問題がないか確認して merge すること。
+
+## 利用可能なコマンド
+
+プロジェクトのディレクトリ内で、以下のコマンドを使用することができます。
 
 ### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+開発サーバを起動します。
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+コマンドを叩くとブラウザが自動的に起動し、
+[http://localhost:3000](http://localhost:3000)を開きます。
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+開発サーバはホットリロード機能を備えているため、開発サーバの起動中にソースコードが変更されると自動的にリロードされ、変更が反映されます。
 
 ### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ソースコードの本番用ビルドを行います。
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ビルド成果物は`build`ディレクトリに書き出されます。
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `yarn run fix`
 
-### `yarn eject`
+ソースコードの整形と静的解析を行います。
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+VSCode で`ESLint`と`Prettier`の拡張機能を導入していれば自動で実行されるので、通常このコマンドを叩く必要はありません。
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 開発参加時の準備
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### `yarn`をインストール
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+`yarn`をインストールしたことがない場合は、以下のコマンドで`yarn`をインストールしてください。
 
-## Learn More
+```
+$ npm install -global yarn
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `git clone`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+開発用のディレクトリに移動し、以下のコマンドでソースコードを clone してください。
 
-### Code Splitting
+```
+$ git clone https://github.com/kougakusai/react-keep.git
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### VSCode の拡張機能を導入
 
-### Analyzing the Bundle Size
+`git clone`したら、プロジェクトのディレクトリに移動し、VSCode で開いてください。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+$ cd react-keep
+$ code .
+```
 
-### Making a Progressive Web App
+VSCode が起動したら拡張機能タブをクリックし、`ESLint`と`Prettier`の拡張機能が有効化されているか確認してください。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+有効化されていない場合でも、おすすめの拡張機能の欄に出現するよう設定していますので、そちらから有効化してください。
