@@ -88,7 +88,7 @@ VSCode で`ESLint`と`Prettier`の拡張機能を導入していれば自動で�
 $ npm install --global yarn
 ```
 
-### `git clone`
+### `git clone`と`yarn install`
 
 開発用のディレクトリに移動し、以下のコマンドでソースコードを clone してください。
 
@@ -96,12 +96,20 @@ $ npm install --global yarn
 $ git clone https://github.com/kougakusai/react-keep.git
 ```
 
-### VSCode の拡張機能を導入
-
-`git clone`したら、プロジェクトのディレクトリに移動し、VSCode で開いてください。
+`git clone`の後、プログラムを実行するために必要なパッケージをインストールするため、プロジェクトのディレクトリ内で`yarn install`を実行してください。
 
 ```
 $ cd react-keep
+$ yarn install
+```
+
+### VSCode の拡張機能を導入
+
+開発は VSCode で行うことを推奨します。
+
+以下のコマンドで、プロジェクトのディレクトリを VSCode で開いてください。
+
+```
 $ code .
 ```
 
