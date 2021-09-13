@@ -80,10 +80,12 @@ VSCode で`ESLint`と`Prettier`の拡張機能を導入していれば自動で�
 
 ### `yarn`をインストール
 
+本プロジェクトでは、パッケージマネージャとして`yarn`を使用します。
+
 `yarn`をインストールしたことがない場合は、以下のコマンドで`yarn`をインストールしてください。
 
 ```
-$ npm install -global yarn
+$ npm install --global yarn
 ```
 
 ### `git clone`
