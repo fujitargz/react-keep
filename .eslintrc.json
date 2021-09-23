@@ -22,5 +22,7 @@
     "sourceType": "module"
   },
   "plugins": ["react", "tailwindcss"],
-  "rules": {}
+  "rules": {
+    "react/prop-types": "off"
+  }
 }
