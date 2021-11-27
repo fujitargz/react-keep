@@ -23,14 +23,16 @@ export const cardsSlice = createSlice({
     },
   ],
   reducers: {
+    add: (state, action) => Array.from(new Set([...state, action.payload])),
     remove: (state, action) =>
       state.filter((card) => card.text !== action.payload),
   },
 });
 
 export const selectCards = (state) => state.cards;
-export const selectLabels = (state) => state.cards.map((card) => card.label);
+export const selectLabels = (state) =>
+  state.cards.map((card) => card.label).filter((label) => label !== '');
 
-export const { remove } = cardsSlice.actions;
+export const { add, remove } = cardsSlice.actions;
 
 export default cardsSlice.reducer;
